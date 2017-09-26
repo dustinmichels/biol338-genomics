@@ -1,0 +1,36 @@
+ssh michelsd@liverpool.its.carleton.edu
+ssh baross
+
+######################
+# Toy dataset
+######################
+
+mkdir toy_dataset_directory
+cd toy_dataset_directory
+cp /usr/local/data/toy_datasets/toy_dataset_reads.fasta .
+
+idba_ud -r toy_dataset_reads.fasta -o toy_assembly
+
+cd toy_assembly
+quast.py contig-20.fa contig-40.fa contig-60.fa contig-80.fa contig-100.fa scaffold.fa –o toy_assembly_quast_evaluation 
+anvi-script-reformat-fasta scaffold.fa -o toy_dataset_assembled.fa -l 0 --simplify-names
+
+######################
+# Real project
+######################
+
+cd ~
+mkdir project_directory
+cd project_directory
+cp /usr/local/data/Tara_datasets/Arabian_Sea/ERR598966_sample.fasta .
+
+idba_ud -r ERR598966_sample.fasta -o ERR598966_assembly
+
+# change the name of your final assembly from "contig-100.fa" to a name that starts with your dataset number,
+# followed by "_assembly.fasta". For example, you might call it something like "ERR598966_assembly.fasta".
+mv contig-100.fa ERR598966_assembly.fasta
+
+# Run anvi-script-reformat-fasta on your completed project assemblies
+anvi-script-reformat-fasta ERR598966_assembly.fasta -o ERR598966_assembly.fa -l 0 --simplify-names
+
+exit
