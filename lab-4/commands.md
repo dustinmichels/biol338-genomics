@@ -26,7 +26,7 @@ cp ERR599031_assembly_formatted.fasta /usr/local/data/class_shared
 
 ## Looking for open reading frames
 
-`cp /usr/local/data/toy_datasets/toy_dataset_assembly_subsample.fa toy_assembly`
+```cp /usr/local/data/toy_datasets/toy_dataset_assembly_subsample.fa toy_assembly```
 
 
 
