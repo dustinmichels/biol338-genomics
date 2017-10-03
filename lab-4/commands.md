@@ -80,7 +80,15 @@ blastp -query PF03787_seed.txt -db toy_assembly_ORFs.faa -evalue 1e-02 -outfmt 6
 ## Back to Project Data
 
 Identify open reading frames on your project assembly using Prodigal
+```
+prodigal -i ../ERR599031_assembly_formatted.fasta -o ERR599031_ORFs.gbk -a ERR599031_ORFs.faa -p meta
+```
 
 Determine their functions using Interproscan.
+
+```
+sed 's/\*//g' ERR599031_ORFs.faa > ERR599031_ORFs.noasterisks.faa
+interproscan.sh -i ERR599031_ORFs.noasterisks.faa -f tsv
+```
 
 
