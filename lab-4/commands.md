@@ -54,6 +54,10 @@ Get rid of asterisks using sed
 sed 's/\*//g' toy_assembly_ORFs.faa > toy_assembly_ORFs.noasterisks.faa
 ```
 
+Run interproscan
+```
+interproscan.sh -i toy_assembly_ORFs.noasterisks.faa -f tsv
+```
 
 
 
