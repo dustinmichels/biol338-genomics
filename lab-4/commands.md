@@ -77,4 +77,10 @@ Another way
 blastp -query PF03787_seed.txt -db toy_assembly_ORFs.faa -evalue 1e-02 -outfmt 6 -out PF03787_vs_prodigal_ORFs_toy_evalue1e02.blastp
 ```
 
+## Back to Project Data
+
+Identify open reading frames on your project assembly using Prodigal
+
+Determine their functions using Interproscan.
+
 
