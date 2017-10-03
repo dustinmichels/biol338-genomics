@@ -12,7 +12,7 @@ cd out/
 Change name of contig-100.fa to conventional name for class,
 Run script so that another software program (called “anvi’o") is happy,
 Copy formatted, assembled file to shared class directory.
-```
+```bash
 mv contig-100.fa ERR599031_assembly.fasta
 anvi-script-reformat-fasta ERR599031_assembly.fasta -o ERR599031_assembly_formatted.fasta -l 0 --simplify-names
 cp ERR599031_assembly_formatted.fasta /usr/local/data/class_shared
@@ -21,7 +21,7 @@ cp ERR599031_assembly_formatted.fasta /usr/local/data/class_shared
 ## Looking for open reading frames
 
 Back to toy dataset 
-```
+```bash
 cp /usr/local/data/toy_datasets/toy_dataset_assembly_subsample.fa toy_assembly
 mkdir ORF_finding
 cd ORF_finding
