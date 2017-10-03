@@ -43,6 +43,12 @@ See amino acids:
 less toy_assembly_ORFs.faa
 ```
 
+Do a protein blast on https://blast.ncbi.nlm.nih.gov/Blast.cgi
+* Try protein blastp, and tblastn
+
+*What's the difference?*
+> blastp is a protein-protein blast. When you run it online like this, you are comparing your protein sequence against the National Centers for Biotechnology Information (NCBI) non-redundant protein database, which is a giant database of protein sequences that is “non-redundant”—that is, each protein should be represented only once. In contrast, tblastn is a translated nucleotide blast. You are blasting your protein sequence against a translated nucleotide database. When you run it online like this, you are comparing your protein sequence against the NCBI non-redundant nucleotide database, which is a giant database of nucleotide sequnces, which can include whole genomes.
+
 
 
 
