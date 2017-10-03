@@ -59,7 +59,12 @@ Run interproscan
 interproscan.sh -i toy_assembly_ORFs.noasterisks.faa -f tsv
 ```
 
+Make blast ready:
+```
+makeblastdb -in toy_assembly_ORFs.faa -dbtype prot
+```
 
+Head to [pfam](http://pfam.xfam.org/family/PF03787) website and click 1866 sequences in top bar.
 
 
 
