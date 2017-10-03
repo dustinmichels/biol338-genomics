@@ -66,5 +66,10 @@ makeblastdb -in toy_assembly_ORFs.faa -dbtype prot
 
 Head to [pfam](http://pfam.xfam.org/family/PF03787) website and click 1866 sequences in top bar.
 
+Transfer that file intotoy dataset.
+
+```
+blastp -query PF03787_seed.txt -db toy_assembly_ORFs.faa -evalue 1e-05 -outfmt 6 -out PF03787_vs_prodigal_ORFs_toy.blastp
+```
 
 
