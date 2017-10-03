@@ -25,14 +25,24 @@ Back to toy dataset
 cp /usr/local/data/toy_datasets/toy_dataset_assembly_subsample.fa toy_assembly
 mkdir ORF_finding
 cd ORF_finding
+```
+
+Run prodigal
+```
 prodigal -i ../toy_assembly/toy_dataset_assembly_subsample.fa -o toy_assembly_ORFs.gbk -a toy_assembly_ORFs.faa -p single
 ```
 
 Note:
-The “-i” flag gives the input file, which is the assembly you just made.
-The “-o” flag gives the output file in Genbank format
-The ‘-a” flag gives the output file in fasta format
-The “-p” flag states which procedure you’re using: whether this is a single genome or a metagenome. This toy dataset is a single genome so we are using –p single, but for your project dataset, you will use –p meta.
+* The “-i” flag gives the input file, which is the assembly you just made.
+* The “-o” flag gives the output file in Genbank format
+* The ‘-a” flag gives the output file in fasta format
+* The “-p” flag states which procedure you’re using: whether this is a single genome or a metagenome. This toy dataset is a single genome so we are using –p single, but for your project dataset, you will use –p meta.
+
+See amino acids:
+```
+less toy_assembly_ORFs.faa
+```
+
 
 
 
