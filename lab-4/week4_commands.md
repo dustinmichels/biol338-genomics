@@ -1,4 +1,4 @@
-# Commands for Week 5
+# Commands for Week 4
 
 See Week 4 on [Protocals.io](https://www.protocols.io/private/fef7eaf6efeab7b2d989a7fb202baefe)
 
