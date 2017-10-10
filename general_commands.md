@@ -20,11 +20,14 @@ ssh michelsd@baross.its.carleton.edu
 
 See: [Cheat Sheet](http://www.dayid.org/comp/tm.html)
 
-| Action                     | tmux         | screen   |
-|----------------------------|--------------|----------|
-| start new session          | `tmux`       | `screen` |
-| detach from currently attached session | `^b d`OR `^b :detach`|`^a ^d` OR `^a :detach`|
+`^` = option key
+
+| Action                     | tmux         | screen     |
+|----------------------------|--------------|------------|
+| start new session          | `tmux`       | `screen`   |
+| detach from current session| `^b d`       |`^a ^d`     |
 | re-attach detached session | `tmux attach`| `screen-r` |
+| list sessions              | `^b s`       | `screen-r` |
 
 ## File Transfer
 
