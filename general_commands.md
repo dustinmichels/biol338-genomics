@@ -23,7 +23,7 @@ ssh [username ]@baross.its.carleton.edu
 
 See: [Cheat Sheet](http://www.dayid.org/comp/tm.html)
 
-`^` = option key
+`^` = control key
 
 | Action                     | tmux         | screen     |
 |----------------------------|--------------|------------|
@@ -74,7 +74,8 @@ prodigal -i ../toy_assembly/toy_dataset_assembly_subsample.fa -o toy_assembly_OR
 ```
 
 * The `-i` flag gives the input file, which is the assembly you just made.
-* The `-o` flag gives the output file in Genbank format *The ‘-a” flag gives the output file in fasta format
+* The `-o` flag gives the output file in Genbank format
+* The ‘-a” flag gives the output file in fasta format
 * The `-p` flag states which procedure you’re using: whether this is a single genome or a metagenome. This toy dataset is > a single genome so we are using –p single, but for your project dataset, you will use –p meta.
 
 
@@ -84,11 +85,11 @@ prodigal -i ../toy_assembly/toy_dataset_assembly_subsample.fa -o toy_assembly_OR
 
 Used to efficiently and effectively annotate proteins. Compares your open reading frames against several protein databases and looks for protein "signatures," or regions that are highly conserved among proteins, and uses that to annotate your open reading frames. It will do this for every single open reading frame in your dataset, if it can find a match.
 
-Example usage: 
+Example usage:
 
 ```bash
 interproscan.sh -i toy_assembly_ORFs.noasterisks.faa -f tsv
 ```
- 
+
 * The `-i` flag gives the input file, which is your file with ORF sequences identified by Prodigal, with the asterisks removed.
 * The `-f` flag tells Interproscan that the format you want is a tab-separated vars, or “tsv,” file.
