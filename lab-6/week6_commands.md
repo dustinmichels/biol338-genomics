@@ -80,6 +80,7 @@ See: http://software.broadinstitute.org/software/igv/AlignmentData
 
 Back on server side...
 
+RFs.faa  ERR599031_O
 ```bash
 cp /usr/local/data/toy_datasets/toy_dataset_reads_for_mapping_species2.fasta .
 bowtie2 -x toy_dataset_contig_for_mapping.btindex -f -U toy_dataset_reads_for_mapping_species2.fasta -S toy_dataset_mapped_species2.sam
