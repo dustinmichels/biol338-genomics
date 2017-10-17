@@ -1,0 +1,18 @@
+PostLab Questions: Week 6
+
+1. Describe the large-scale differences between the mapped reads from species 1 and species 2, and explain what this mapping tells us about the relative genome structure of the two genomes that we mapped. If we compared this genomic region in a dot plot, what would it look like? Describe at least one biological mechanism by which this may have occurred.
+
+
+
+
+2. Do you see evidence of misassemblies? If so, describe where you see evidence for this and what this evidence looks like.
+
+
+
+
+3. Do you see any evidence of single nucleotide polymorphisms? If so, describe where you see evidence for this and what this evidence looks like.
+
+
+
+
+
