@@ -2,6 +2,9 @@ PostLab Questions: Week 6
 
 1. Describe the large-scale differences between the mapped reads from species 1 and species 2, and explain what this mapping tells us about the relative genome structure of the two genomes that we mapped. If we compared this genomic region in a dot plot, what would it look like? Describe at least one biological mechanism by which this may have occurred.
 
+- A large section of the genome is deleted for species 2 (between ~10.5kb and ~40kb on the  reference genome.)
+
+- Evolutionary response to virus.
 
 
 

@@ -58,7 +58,7 @@ samtools index toy_dataset_mapped_species1_sorted.bam
 * samtools index is the name of the program that indexes the bam files.
 * The first argument provides the name of a sorted bam file.
 
-### View with IGV
+##R599031_ORFs.faa
 
 Copy fies over
 
@@ -88,6 +88,36 @@ samtools sort toy_dataset_mapped_species2.bam -o toy_dataset_mapped_species2_sor
 samtools index toy_dataset_mapped_species2_sorted.bam
 ```
 
+---
+## Mapping project dataset
+
+```bash
+bowtie2-build ERR599031_assembly_formatted.fasta ERR599031_assembly_formatted.btindex
+bowtie2 -x ERR599031_assembly_formatted.btindex -f -U ../ERR599031_sample.fasta -S ERR599031_mapped.sam -p 4
+samtools view -bS ERR599031_mapped.sam > ERR599031_mapped.bam
+samtools sort ERR599031_mapped.bam -o ERR599031_mapped_sorted.bam
+samtools faidx ERR599031_assembly_formatted.fasta 
+samtools index ERR599031_mapped_sorted.bam
+```
+
+We are comparing reads to the contigs made from those reads. This can tell us something about aundance of certain species
+and certain genes.
+
+## View in TGV
+
+Note that you have many contigs as reference, rather than one scaffold, so you must toggle between them with drop-down menu.
+
+## Make a bed file
+
+Tells us about average coverage of every single open reading frame.
+
+Change name of assembled file!!
+
+On class folder somewhere...
+make_bed_file_from_ORF_file.py ERR599166_assembled_ORFs.faa
+
+
+note: made it to step 19!
 
 
 
