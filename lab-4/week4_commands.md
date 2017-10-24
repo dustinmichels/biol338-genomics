@@ -84,19 +84,19 @@ interproscan.sh -i toy_assembly_ORFs.noasterisks.faa -f tsv
 
 You can transfer this file to local computer using FileZilla and view it using Excel. The column headers are:
 
-| #   | Contents                                                                                 |
-|-----|------------------------------------------------------------------------------------------|
-| 1.  | Protein Accession (e.g. P51587)                                                          |
-| 2.  | Sequence MD5 digest (e.g. 14086411a2cdf1c4cba63020e1622579)                              |
-| 3.  | Sequence Length (e.g. 3418)                                                              |
-| 4.  | Analysis (e.g. database name-- Pfam / PRINTS / Gene3D)                                   |
-| 5.  | Signature Accession Number (e.g. PF09103 / G3DSA:2.40.50.140)                            |
-| 6.  | Signature Description (e.g. BRCA2 repeat profile)                                        |
-| 7.  | Start location                                                                           |
-| 8.  | Stop location                                                                            |
-| 9.  | Score - is the e-value of the match reported by member database 9. method (e.g. 3.1E-52) |
-| 10. | Status - is the status of the match (T: true)                                            |
-| 11. | Date - is the date of the run                                                            |
+| #    | Contents                                 |
+| ---- | ---------------------------------------- |
+| 1.   | Protein Accession (e.g. P51587)          |
+| 2.   | Sequence MD5 digest (e.g. 14086411a2cdf1c4cba63020e1622579) |
+| 3.   | Sequence Length (e.g. 3418)              |
+| 4.   | Analysis (e.g. database name-- Pfam / PRINTS / Gene3D) |
+| 5.   | Signature Accession Number (e.g. PF09103 / G3DSA:2.40.50.140) |
+| 6.   | Signature Description (e.g. BRCA2 repeat profile) |
+| 7.   | Start location                           |
+| 8.   | Stop location                            |
+| 9.   | Score - is the e-value of the match reported by member database 9. method (e.g. 3.1E-52) |
+| 10.  | Status - is the status of the match (T: true) |
+| 11.  | Date - is the date of the run            |
 
 ---
 ## Searching for matches within your own database
@@ -121,7 +121,7 @@ makeblastdb -in toy_assembly_ORFs.faa -dbtype prot
 4. Transfer that file into toy dataset with FileZilla.
 
 > Take a look at the Pfam file using less or using a text editing tool on the local computer. It is a FASTA file with a bunch of “seed” sequences that represent a specific protein family from different organisms.
-> 
+>
 > If you want to learn more about a specific sequence, you can take the first part of the fasta title (i.e. “Q2RY06_RHORT”) and go to this website: http://www.uniprot.org/uploadlists/ and paste it in the box. Then select from “UniProt KB AC/ID” to “UniProtKB” in the drop-down menu on the bottom. You will get a table with information about your protein and which organism it comes from (in this case, a type of bacterium called Rhodospirillum).
 
 ### Blast seed file against ORF file as database
@@ -149,20 +149,20 @@ Transfer file to local computer with FileZilla, and open with Excel.
 
 The columns contain the follow information:
 
-| #  | Contents                  |
-|----|---------------------------|
-| 1  | query sequence name       |
-| 2  | database sequence name    |
-| 3  | percent identity          |
-| 4  | alignment length          |
-| 5  | number of mismatches      |
-| 6  | number of gaps            |
-| 7  | query start coordinates   |
-| 8  | query end coordinates     |
-| 9  | subject start coordinates |
-| 10 | subject end coordinates   |
-| 11 | e-value                   |
-| 12 | bitscore                  |  
+| #    | Contents                  |
+| ---- | ------------------------- |
+| 1    | query sequence name       |
+| 2    | database sequence name    |
+| 3    | percent identity          |
+| 4    | alignment length          |
+| 5    | number of mismatches      |
+| 6    | number of gaps            |
+| 7    | query start coordinates   |
+| 8    | query end coordinates     |
+| 9    | subject start coordinates |
+| 10   | subject end coordinates   |
+| 11   | e-value                   |
+| 12   | bitscore                  |
 
 ### Trying again with a different gene
 
