@@ -1,0 +1,42 @@
+        at org.hibernate.jpa.spi.AbstractEntityManagerImpl.persist(AbstractEntityManagerImpl.java:1146)
+        ... 43 more
+Caused by: org.h2.jdbc.JdbcSQLException: Table "KEY_GEN" not found; SQL statement:
+select tbl.next_val from public.key_gen tbl where tbl.sequence_name=? [42102-189]
+        at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+        at org.h2.message.DbException.get(DbException.java:179)
+        at org.h2.message.DbException.get(DbException.java:155)
+        at org.h2.schema.Schema.getTableOrView(Schema.java:436)
+        at org.h2.command.Parser.readTableOrView(Parser.java:5276)
+        at org.h2.command.Parser.readTableFilter(Parser.java:1234)
+        at org.h2.command.Parser.parseSelectSimpleFromPart(Parser.java:1873)
+        at org.h2.command.Parser.parseSelectSimple(Parser.java:1982)
+        at org.h2.command.Parser.parseSelectSub(Parser.java:1867)
+        at org.h2.command.Parser.parseSelectUnion(Parser.java:1688)
+        at org.h2.command.Parser.parseSelect(Parser.java:1676)
+        at org.h2.command.Parser.parsePrepared(Parser.java:432)
+        at org.h2.command.Parser.parse(Parser.java:304)
+        at org.h2.command.Parser.parse(Parser.java:276)
+        at org.h2.command.Parser.prepareCommand(Parser.java:241)
+        at org.h2.engine.Session.prepareLocal(Session.java:461)
+        at org.h2.engine.Session.prepareCommand(Session.java:403)
+        at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+        at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:72)
+        at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:276)
+        at sun.reflect.GeneratedMethodAccessor62.invoke(Unknown Source)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:498)
+        at org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy$LazyConnectionInvocationHandler.invoke(LazyConnectionDataSourceProxy.java:376)
+        at com.sun.proxy.$Proxy7.prepareStatement(Unknown Source)
+        at org.hibernate.id.enhanced.TableGenerator.prepareStatement(TableGenerator.java:623)
+        at org.hibernate.id.enhanced.TableGenerator.access$200(TableGenerator.java:128)
+        at org.hibernate.id.enhanced.TableGenerator$1$1.execute(TableGenerator.java:542)
+        at org.hibernate.id.enhanced.TableGenerator$1$1.execute(TableGenerator.java:536)
+        at org.hibernate.jdbc.WorkExecutor.executeReturningWork(WorkExecutor.java:55)
+        at org.hibernate.jdbc.AbstractReturningWork.accept(AbstractReturningWork.java:34)
+        at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:56)
+        ... 55 more
+2017-10-21 08:16:17,570 [amqEmbeddedWorkerJmsContainer-8] [uk.ac.ebi.interpro.scan.jms.worker.LocalJobQueueListener:201] ERROR - StepExecution with errors - stepName: stepPrositeProfilesParseRawOutput
+2017-10-21 08:16:17,572 [responseMonitorJmsContainer-1] [org.hibernate.engine.jdbc.spi.SqlExceptionHelper:127] WARN - SQL Error: 42102, SQLState: 42S02
+2017-10-21 08:16:17,574 [responseMonitorJmsContainer-1] [org.hibernate.engine.jdbc.spi.SqlExceptionHelper:129] ERROR - Table "STEP_EXECUTION" not found; SQL statement:
+select stepexecut0_.id as id1_90_0_, stepexecut0_.time_completed as time_com2_90_0_, stepexecut0_.time_created as time_cre3_90_0_, stepexecut0_.exception_first_chunk as exceptio4_90_0_, stepexecut0_.proportion_completed as proporti5_90_0_, stepexecut0_.time_started_running as time_sta6_90_0_, stepexecut0_.state as state7_90_0_, stepexecut0_.step_instance_id as step_ins9_90_0_, stepexecut0_.time_submitted as time_sub8_90_0_, exceptionc1_.step_execution_id as step_exe1_12_1_, exceptionc1_.exception_chunks as exceptio2_12_1_, exceptionc1_.chunk_index as chunk_in3_1_, stepinstan2_.id as id1_91_2_, stepinstan2_.bottom_model as bottom_m2_91_2_, stepinstan2_.bottom_protein as bottom_p3_91_2_, stepinstan2_.step_id as step_id4_91_2_, stepinstan2_.time_created as time_cre5_91_2_, stepinstan2_.top_model as top_mode6_91_2_, stepinstan2_.top_protein as top_prot7_91_2_, dependsupo3_.step_instance_id as step_ins1_93_3_, stepinstan4_.id as depends_2_93_3_, stepinstan4_.id as id1_91_4_, stepinstan4_.bottom_model as bottom_m2_91_4_, stepinstan4_.bottom_protein as bottom_p3_91_4_, stepinstan4_.step_id as step_id4_91_4_, stepinstan4_.time_created as time_cre5_91_4_, stepinstan4_.top_model as top_mode6_91_4_, stepinstan4_.top_protein as top_prot7_91_4_, parameters5_.step_instance_id as step_ins1_92_5_, parameters5_.parameters as paramete2_92_5_, parameters5_.parameters_key as paramete3_5_ from public.step_execution stepexecut0_ left outer join public.exception_chunk exceptionc1_ on stepexecut0_.id=exceptionc1_.step_execution_id inner join public.step_instance stepinstan2_ on stepexecut0_.step_instance_id=stepinstan2_.id left outer join public.step_instance_step_instance dependsupo3_ on stepinstan2_.id=dependsupo3_.step_instance_id left outer join public.step_instance stepinstan4_ on dependsupo3_.depends_upon_id=stepinstan4_.id left outer join public.step_instance_parameters parameters5_ on stepinstan4_.id=parameters5_.step_instance_id where stepexecut0_.id=? [42102-189]
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
