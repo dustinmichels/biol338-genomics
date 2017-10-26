@@ -125,13 +125,15 @@ samtools index toy_dataset_mapped_species2_sorted.bam
 
 ## 2. Mapping project dataset
 
+
+
 ### 2.a) Run commands to map and index
 
 ```bash
 # Make index of reference (assembly of contigs)
 bowtie2-build ERR599031_assembly_formatted.fasta ERR599031_assembly_formatted.btindex
 
-# Creat SAM file, comparing reads to contig
+# Create SAM file, comparing reads to contig
 bowtie2 -x ERR599031_assembly_formatted.btindex -f -U ../ERR599031_sample.fasta -S ERR599031_mapped.sam -p 4
 
 # Convert SAM to BAM 
@@ -149,25 +151,66 @@ We are comparing reads to the contigs made from those reads. This can tell us so
 
 
 
-## 2.b) View in IGV
+### 2.b) View in IGV
 
 Note that you have many contigs as reference, rather than one scaffold, so you must toggle between them with drop-down menu.
 
-## Make a bed file
-
-Tells us about average coverage of every single open reading frame.
-
-Change name of assembled file!!
-
-On class folder somewhere...
-make_bed_file_from_ORF_file.py ERR599166_assembled_ORFs.faa
 
 
-note: made it to step 19!
+### 2.c) Make bed file
+
+Rather than visualize, want to quantify the average coverage of every single open reading frame.
+
+```bash
+# Make bed file from ORF file
+make_bed_file_from_ORF_file.py ERR599031_ORFs.noasterisks.faa
+
+# copy and rename bed file
+cp ERR599031_ORFs.noasterisks.bed ERR599031_assembled_ORFs.bed
+
+# move out of ORF folder, into mapping folder
+mv ERR599031_assembled_ORFs.bed ../mapping
+```
+
+Use bed file to calculate read depth for every single ORF in ORF file
+
+```bash
+samtools bedcov ERR599031_assembled_ORFs.bed ERR599031_mapped_sorted.bam  > ERR599031_ORF_coverage.txt
+```
+
+### 2.d) Examine File
+
+- Open this file in Excel, calculate average coverage
+- Reference interproscan & find two ORFs of interest. See how coverage compares.
+- Also: copy files to class data
 
 
 
+### 2.e) Compare to other students
 
+I'm at depth of 600m. Comparing to others in mesopelagic zone.
 
+- Alief — 600m, South Pacific (near the Marquesas), ERR598999
+- Adriana — 790m, Southern Ocean (near Antarctica), ERR599008
 
+```bash
+# Copy files
+INCOMPLETE!!
+
+# Make index of reference (assembly of contigs)
+bowtie2-build ERR599031_assembly_formatted.fasta ERR599031_assembly_formatted.btindex
+
+# Create SAM file, comparing reads to contig
+bowtie2 -x ERR599031_assembly_formatted.btindex -f -U ../ERR599031_sample.fasta -S ERR599031_mapped.sam -p 4
+
+# Convert SAM to BAM 
+samtools view -bS ERR599031_mapped.sam > ERR599031_mapped.bam
+
+# Sort BAM file
+samtools sort ERR599031_mapped.bam -o ERR599031_mapped_sorted.bam
+
+# Index reference and reads once again for visualization
+samtools faidx ERR599031_assembly_formatted.fasta 
+samtools index ERR599031_mapped_sorted.bam
+```
 

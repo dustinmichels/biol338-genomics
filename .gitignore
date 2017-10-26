@@ -1,5 +1,5 @@
 
-# Created by https://www.gitignore.io/api/macos,python
+# Created by https://www.gitignore.io/api/macos,python,microsoftoffice
 
 ### macOS ###
 *.DS_Store
@@ -27,6 +27,24 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+### MicrosoftOffice ###
+*.tmp
+
+# Word temporary
+~$*.doc*
+
+# Excel temporary
+~$*.xls*
+
+# Excel Backup File
+*.xlk
+
+# PowerPoint temporary
+~$*.ppt*
+
+# Visio autosave temporary files
+*.~vsd*
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
@@ -131,4 +149,4 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-# End of https://www.gitignore.io/api/macos,python
+# End of https://www.gitignore.io/api/macos,python,microsoftoffice
