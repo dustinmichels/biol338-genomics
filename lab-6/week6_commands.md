@@ -149,7 +149,7 @@ We are comparing reads to the contigs made from those reads. This can tell us so
 
 
 
-## 2.b) View in TGV
+## 2.b) View in IGV
 
 Note that you have many contigs as reference, rather than one scaffold, so you must toggle between them with drop-down menu.
 
