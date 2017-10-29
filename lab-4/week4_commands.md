@@ -2,7 +2,8 @@
 
 See Week 4 on [Protocals.io](https://www.protocols.io/private/fef7eaf6efeab7b2d989a7fb202baefe)
 
----
+
+
 ## Finishing up from last week
 
 Get to folder from last week, with reads
@@ -23,7 +24,10 @@ anvi-script-reformat-fasta ERR599031_assembly.fasta -o ERR599031_assembly_format
 cp ERR599031_assembly_formatted.fasta /usr/local/data/class_shared
 ```
 
----
+
+
+
+
 ## Search for open reading frames
 
 ### Making fasta file with amino acid sequences using prodigal
@@ -51,7 +55,8 @@ Take a look at the output, `less toy_assembly_ORFs.faa`.
 
 > You should see a fasta file with amino acid sequences. Each amino acid sequence is an open reading frame (ORF), or a putative gene that has been identified from your assembly.
 
----
+
+
 ## Finding the function of our open reading frames/genes/proteins
 
 ### Do a protein blast on NCBI
@@ -84,21 +89,20 @@ interproscan.sh -i toy_assembly_ORFs.noasterisks.faa -f tsv
 
 You can transfer this file to local computer using FileZilla and view it using Excel. The column headers are:
 
-| #    | Contents                                 |
-| ---- | ---------------------------------------- |
-| 1.   | Protein Accession (e.g. P51587)          |
-| 2.   | Sequence MD5 digest (e.g. 14086411a2cdf1c4cba63020e1622579) |
-| 3.   | Sequence Length (e.g. 3418)              |
-| 4.   | Analysis (e.g. database name-- Pfam / PRINTS / Gene3D) |
-| 5.   | Signature Accession Number (e.g. PF09103 / G3DSA:2.40.50.140) |
-| 6.   | Signature Description (e.g. BRCA2 repeat profile) |
-| 7.   | Start location                           |
-| 8.   | Stop location                            |
-| 9.   | Score - is the e-value of the match reported by member database 9. method (e.g. 3.1E-52) |
-| 10.  | Status - is the status of the match (T: true) |
-| 11.  | Date - is the date of the run            |
+1. Protein Accession (e.g. P51587)
+2. Sequence MD5 digest (e.g. 14086411a2cdf1c4cba63020e1622579)
+3. Sequence Length (e.g. 3418)
+4. Analysis (e.g. database name-- Pfam / PRINTS / Gene3D)
+5. Signature Accession Number (e.g. PF09103 / G3DSA:2.40.50.140)
+6. Signature Description (e.g. BRCA2 repeat profile)
+7. Start location
+8. Stop location
+9. Score - is the e-value of the match reported by member database 9. method (e.g. 3.1E-52)
+10. Status - is the status of the match (T: true)
+11. Date - is the date of the run
 
----
+
+
 ## Searching for matches within your own database
 
 Navigate to `/toy_dataset_directory/ORF_finding`
@@ -149,20 +153,20 @@ Transfer file to local computer with FileZilla, and open with Excel.
 
 The columns contain the follow information:
 
-| #    | Contents                  |
-| ---- | ------------------------- |
-| 1    | query sequence name       |
-| 2    | database sequence name    |
-| 3    | percent identity          |
-| 4    | alignment length          |
-| 5    | number of mismatches      |
-| 6    | number of gaps            |
-| 7    | query start coordinates   |
-| 8    | query end coordinates     |
-| 9    | subject start coordinates |
-| 10   | subject end coordinates   |
-| 11   | e-value                   |
-| 12   | bitscore                  |
+1. query sequence name
+2. database sequence name
+3. percent identity
+4. alignment length
+5. number of mismatches
+6. number of gaps
+7. query start coordinates
+8. query end coordinates
+9. subject start coordinates
+10. subject end coordinates
+11. e-value
+12. bitscore
+
+
 
 ### Trying again with a different gene
 
@@ -183,6 +187,8 @@ Blast!
 ```bash
 blastp -query DNA_pol_T_aquaticus.faa -db toy_assembly_ORFs.faa -outfmt 6 -out DNA_pol_T_aq_vs_prodigal_ORFs_toy.blastp
 ```
+
+
 
 ## Applying these analyses to your project datasets
 

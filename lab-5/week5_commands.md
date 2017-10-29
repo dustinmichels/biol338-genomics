@@ -2,7 +2,6 @@
 
 See full Week 5 instructions on [Protocals.io](https://www.protocols.io/private/bba6f8f98e03c9de92641ca3810b212c)
 
----
 
 
 ## Getting Started
@@ -103,9 +102,7 @@ raxmlHPC-PTHREADS-AVX -f a -# 20 -m PROTGAMMAAUTO -p 12345 -x 12345 -s toy_datas
 
 ## Asking biological questions with trees
 
-*<u>Question</u>*: "What evolutionary clade do photosynthesis genese from surface waters fall into?"
-
-
+*<u>Question</u>*: "What evolutionary clade do photosynthesis genes from surface waters fall into?"
 
 ### Finding gene of interest
 
@@ -170,3 +167,47 @@ raxmlHPC-PTHREADS-AVX -f a -# 20 -m PROTGAMMAAUTO -p 12345 -x 12345 -s PF00124_s
 
 
 
+---
+
+## Asking my own question
+
+Download 16s seed from PFAM
+
+```bash
+# Rearrange files...
+# (on server)
+cd project_directory
+mkdir alignments_and_trees
+cp mapping/ERR599031_ORFs.noasterisks.faa alignments_and_trees/
+mv ERR599031_ORFs.noasterisks.faa ERR599031_ORFs.faa
+
+# Make db
+# (on server)
+makeblastdb -in ERR599031_ORFs.faa -dbtype prot
+
+# blast
+# (on server)
+blastp -query 16s_protein_fasta.txt -db ERR599031_ORFs.faa -outfmt 6 -evalue 1e-08 -out 16s_protein_vs_ERR599031_ORFs.blastp
+
+# extract protein sequences for matching contigs, using python script
+# (on my comptuer)
+python3 blastp_to_fasta.py
+
+# Make a multiple sequence alignment with muscle
+# (on server)
+muscle -in 16s_ORF_project.fasta -out 16s_ORF_project.afa
+
+# Covert afa to phy
+# (on server)
+convert_afa_to_phy.py 16s_ORF_project.afa
+
+# Make tree, take 1
+# (on server --> failed	)
+raxmlHPC-PTHREADS-AVX -f a -# 20 -m PROTGAMMAAUTO -p 12345 -x 12345 -s 16s_ORF_project.phy -n 16s_ORF_project.tree -T 4
+
+# Make tree, take 2
+# (on my computer)
+./raxml  -f a -# 20 -m PROTGAMMAAUTO -p 12345 -x 12345 -s 16s_ORF_project.phy -n 16s_ORF_project.tree -T 4
+
+
+```
