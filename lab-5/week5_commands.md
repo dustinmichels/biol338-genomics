@@ -208,6 +208,4 @@ raxmlHPC-PTHREADS-AVX -f a -# 20 -m PROTGAMMAAUTO -p 12345 -x 12345 -s 16s_ORF_p
 # Make tree, take 2
 # (on my computer)
 ./raxml  -f a -# 20 -m PROTGAMMAAUTO -p 12345 -x 12345 -s 16s_ORF_project.phy -n 16s_ORF_project.tree -T 4
-
-
 ```
